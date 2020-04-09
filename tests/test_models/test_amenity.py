@@ -9,7 +9,6 @@ import pep8
 
 class TestAmenity(unittest.TestCase):
     """this will test the Amenity class"""
-
     @classmethod
     def setUpClass(cls):
         """set up for test"""
@@ -54,8 +53,8 @@ class TestAmenity(unittest.TestCase):
         self.assertEqual(type(self.amenity.name), str)
 
     @unittest.skipIf(
-       os.getenv('HBNB_TYPE_STORAGE') == 'db',
-       "This test only work in Filestorage")
+        os.getenv('HBNB_TYPE_STORAGE') == 'db',
+        "This test only work in Filestorage")
     def test_save_Amenity(self):
         """test if the save works"""
         self.amenity.save()
