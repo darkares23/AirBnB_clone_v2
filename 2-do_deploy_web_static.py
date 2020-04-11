@@ -11,7 +11,7 @@ env.hosts = ['34.74.164.242', '3.87.108.35']
 
 
 def do_deploy(archive_path):
-    """This function will deploy the web static to the servers"""
+    """Deploy the web static to the servers"""
     if exists(archive_path) is False:
         return False
     try:
