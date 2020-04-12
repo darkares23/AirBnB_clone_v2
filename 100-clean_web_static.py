@@ -3,7 +3,7 @@
 from os.path import exists
 from datetime import datetime
 from fabric.api import local, run, env, put, sudo
-env.hosts = ["3.84.104.13", "35.237.21.147"]
+env.hosts = ['34.74.164.242', '3.87.108.35']
 
 
 def do_clean(number=0):
