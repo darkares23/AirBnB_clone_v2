@@ -7,7 +7,7 @@ from fabric.api import local, run, env, put, sudo
 from datetime import datetime
 from os.path import exists
 
-env.hosts = ['34.74.164.242', '3.87.108.35']		
+env.hosts = ['34.74.164.242', '3.87.108.35']
 
 
 def do_pack():
@@ -42,8 +42,9 @@ def _do_deploy(archive_path):
     except Exception:
         return False
 
+
 def deploy():
-	path = do_pack()
-	if not exists(path):
-		return False
-	return(_do_deploy(path))
+    path = do_pack()
+    if not exists(path):
+        return False
+    return(_do_deploy(path))
