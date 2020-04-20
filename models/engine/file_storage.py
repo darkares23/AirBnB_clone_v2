@@ -72,3 +72,7 @@ class FileStorage:
                 if k.split('.')[1] == obj.id:
                     del self.all()[k]
             self.save()
+
+    def close(self):
+        """Close and deserealize JSOM file object"""
+        self.reload()
