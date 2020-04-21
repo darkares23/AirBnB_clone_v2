@@ -14,7 +14,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 
 all_classes = {"City": City, "Place": Place, "Review": Review,
-                   "Amenity": Amenity, "State": State, "User": User}
+               "Amenity": Amenity, "State": State, "User": User}
 
 
 class DBStorage():
