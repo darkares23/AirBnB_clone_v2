@@ -13,7 +13,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 
-all_classes = {"State", "City", "User", "Place", "Review", "Amenity"}
+all_classes = {"City": City, "Place": Place, "Review": Review,
+                   "Amenity": Amenity, "State": State, "User": User}
 
 
 class DBStorage():
@@ -36,24 +37,24 @@ class DBStorage():
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """return dict for cls
-        """
-        entities = dict()
-        if cls:
-            return self.get_data_from_table(cls, entities)
-        for entity in all_classes:
-            entities = self.get_data_from_table(eval(entity), entities)
-        return entities
+        new_dict = {}
 
-    def get_data_from_table(self, cls, structure):
-        """get data from table
-        """
-        if type(structure) is dict:
-            query = self.__session.query(cls)
-            for _row in query.all():
-                key = "{}.{}".format(cls.__name__, _row.id)
-                structure[key] = _row
-            return structure
+        if cls is not None:
+            if cls in all_classes:
+                see = self.__session.query(all_classes[cls])
+            else:
+                see = self.__session.query(cls)
+            for instance in see:
+                key = instance.__class__.__name__ + "." + instance.id
+                new_dict[key] = instance
+
+        if cls is None:
+            for clas in all_classes.keys():
+                see = self.__session.query(all_classes[clas])
+                for instance in see:
+                    key = instance.__class__.__name__ + "." + instance.id
+                    new_dict[key] = instance
+        return (new_dict)
 
     def new(self, obj):
         """Add obj to the current database session."""

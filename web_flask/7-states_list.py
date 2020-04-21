@@ -19,7 +19,7 @@ def tearDown(self):
 @app.route('/states_list', strict_slashes=False)
 def states():
     """Route to displays all states in db"""
-    states_list = storage.all("State").values()
+    states_list = storage.all('State').values()
     return render_template('7-states_list.html', states_list=states_list)
 
 if __name__ == '__main__':
