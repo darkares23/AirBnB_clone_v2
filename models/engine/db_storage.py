@@ -37,6 +37,7 @@ class DBStorage():
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
+        """"manage dict all cls and entities"""
         new_dict = {}
 
         if cls is not None:
