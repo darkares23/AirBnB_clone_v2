@@ -15,14 +15,15 @@ app.url_map.strict_slashes = False
 
 @app.route('/states_list', strict_slashes=False)
 def show_states_list():
-	"""Route to displays all states in db"""
-	states = storage.all('State')
-	return render_template('7-states_list.html', states=states)
+    """Route to displays all states in db"""
+    states = storage.all('State')
+    return render_template('7-states_list.html', states=states)
+
 
 @app.teardown_appcontext
 def tearDown(error):
-	"""handle teardpown and close the db at request end"""
-	storage.close()
+    """handle teardpown and close the db at request end"""
+    storage.close()
 
 
 if __name__ == '__main__':
