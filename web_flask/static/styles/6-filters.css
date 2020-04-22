@@ -57,8 +57,9 @@ button:hover {
     border-radius: 4px;
     background: #FAFAFA;
     padding-bottom: 25px;
+    z-index: 100;
     max-height: 300px;
-    overflow-y: scroll;
+    overflow: scroll;
 }
 .amenities .popover {
     padding: 20px 0;
@@ -74,4 +75,7 @@ button:hover {
 .amenities:hover .popover,
 .locations:hover .popover {
     visibility: visible;
+    z-index: 100;
+    max-height: 300px;
+    overflow: scroll;
 }
