@@ -14,35 +14,32 @@
 	</header>
 	<div class="container">
 		<section class="filters">
-	<div class="locations">
-		<h3>States</h3>
-		<h4>California, Arizona</h4>
-		<div class="popover">
-			{% for state in states.values()|sort(attribute='name') %}
-			<LI><H2>{{ state.name }}</H2>
-			  <UL>
-			    {% for city in state.cities|sort(attribute='name') %}
-			    <LI>{{ city.name }}</LI>
-			    {% endfor %}
-			  </UL>
-			</LI>
-			{% endfor %}
-		      </UL>
-		</div>
-	</div>
-	<div class="amenities">
-		<h3>Amenities</h3>
-		<h4>Internet, Kitchen</h4>
-		<div class="popover">
-		<ul>
-			<li>Internet</li>
-			<li>TV</li>
-			<li>Kitchen</li>
-			<li>Iron</li>
-		</ul>
-		</div>
-	</div>
-	<button type="button">Search</button>
+			<div class="locations">
+				<h3>States</h3>
+				<h4>&nbsp</h4>
+				<div class="popover">
+					<h4>&nbsp</h4>
+					{% for state in states.values()|sort(attribute='name') %}
+					<LU><H2 class="poph2">{{ state.name }}</H2>
+						<UL>
+							{% for city in state.cities|sort(attribute='name') %}
+								<LI>{{ city.name }}</LI>
+							{% endfor %}
+						</UL>
+					</LU>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="amenities">
+				<h3>Amenities</h3>
+				<h4>&nbsp</h4>
+				<div class="popover">
+					{% for amenity in amenities.values()|sort(attribute='name') %}
+					<UL>{{ amenity.name }}</UL>
+					{% endfor %}
+				</div>
+			</div>
+			<button type="button">Search</button>
 		</section>
 	</div>
 	<footer>
