@@ -21,6 +21,14 @@ button {
 button:hover {
     opacity: 0.9;
 }
+.filters {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    position: relative;
+}
 .filters div {
     display: inline-grid;
 }
@@ -52,7 +60,7 @@ button:hover {
     width: 25%;
 }
 .popover {
-   visibility: hidden;
+    visibility: hidden;
     max-height: 300px;
     height: 300px;
     width: 100%;
@@ -61,6 +69,8 @@ button:hover {
     background: #FAFAFA;
     padding-bottom: 25px;
     overflow-y: scroll;
+    position: relative;
+    z-index: 1;
 }
 .amenities .popover {
     padding: 20px 0;
@@ -79,4 +89,5 @@ button:hover {
 .amenities:hover .popover,
 .locations:hover .popover {
     visibility: visible;
+    position: relative;
 }
