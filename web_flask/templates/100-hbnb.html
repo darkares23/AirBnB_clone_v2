@@ -44,7 +44,9 @@
 		</section>
     <section class="places">
 		<h1>Places</h1>
-		{% for place in (places.values())|sort(attribute='name') %}
+		{% for place in places.values()|sort(attribute='name') %}
+			{% set user_key = 'User.' + place.user_id %}
+			{% set user = users[user_key] %}
         	<article>
 				<div class="place_name">
 					<h2>{{ place.name }}</h2>
@@ -69,9 +71,7 @@
 					</div>
 				</div>
 					<div class="user">
-						<strong>Owner:</strong>
-						{% set user_key = 'User.' + place.user_id %}
-						{% set user = users[user_key] %}
+						<b>Owner:</b>
 						{{ user.first_name }} {{ user.last_name }}
 					</div>
 					<div class="description">
